@@ -202,14 +202,14 @@ namespace SharpPdfGen.Implementation
         /// <returns>An XFont instance.</returns>
         private XFont CreateFont(TextStyle style)
         {
-            var fontStyle = XFontStyle.Regular;
+            var fontStyle = XFontStyleEx.Normal;
 
             if (style.FontWeight == FontWeight.Bold && style.FontStyle == Core.FontStyle.Italic)
-                fontStyle = XFontStyle.BoldItalic;
+                fontStyle = XFontStyleEx.BoldItalic;
             else if (style.FontWeight == FontWeight.Bold)
-                fontStyle = XFontStyle.Bold;
+                fontStyle = XFontStyleEx.Bold;
             else if (style.FontStyle == Core.FontStyle.Italic)
-                fontStyle = XFontStyle.Italic;
+                fontStyle = XFontStyleEx.Italic;
 
             return new XFont(style.FontFamily, style.FontSize, fontStyle);
         }

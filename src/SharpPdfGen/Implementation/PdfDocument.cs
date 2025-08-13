@@ -16,8 +16,8 @@ namespace SharpPdfGen.Implementation
     /// </summary>
     internal class PdfDocument : IPdfDocument
     {
-        private readonly PdfDocument _document;
-        private readonly List<PdfPage> _pages;
+        private readonly PdfSharp.Pdf.PdfDocument _document;
+        private readonly List<PdfSharp.Pdf.PdfPage> _pages;
         private bool _disposed;
 
         /// <summary>
@@ -25,8 +25,8 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         public PdfDocument()
         {
-            _document = new PdfDocument();
-            _pages = new List<PdfPage>();
+            _document = new PdfSharp.Pdf.PdfDocument();
+            _pages = new List<PdfSharp.Pdf.PdfPage>();
             SetupDocument();
         }
 
@@ -37,7 +37,7 @@ namespace SharpPdfGen.Implementation
         public PdfDocument(Stream stream)
         {
             _document = PdfReader.Open(stream, PdfDocumentOpenMode.Modify);
-            _pages = _document.Pages.Cast<PdfPage>().ToList();
+            _pages = _document.Pages.Cast<PdfSharp.Pdf.PdfPage>().ToList();
             ExtractMetadata();
         }
 
@@ -51,8 +51,8 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         public string? Title
         {
-            get => _document.Info.Title;
-            set => _document.Info.Title = value ?? string.Empty;
+            get => _document.DocumentInformation.Title;
+            set => _document.DocumentInformation.Title = value ?? string.Empty;
         }
 
         /// <summary>
@@ -60,8 +60,8 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         public string? Author
         {
-            get => _document.Info.Author;
-            set => _document.Info.Author = value ?? string.Empty;
+            get => _document.DocumentInformation.Author;
+            set => _document.DocumentInformation.Author = value ?? string.Empty;
         }
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         public string? Subject
         {
-            get => _document.Info.Subject;
-            set => _document.Info.Subject = value ?? string.Empty;
+            get => _document.DocumentInformation.Subject;
+            set => _document.DocumentInformation.Subject = value ?? string.Empty;
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         public string? Keywords
         {
-            get => _document.Info.Keywords;
-            set => _document.Info.Keywords = value ?? string.Empty;
+            get => _document.DocumentInformation.Keywords;
+            set => _document.DocumentInformation.Keywords = value ?? string.Empty;
         }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace SharpPdfGen.Implementation
             await Task.Run(() =>
             {
                 cancellationToken.ThrowIfCancellationRequested();
-                _document.Save(stream);
+                _document.Save(stream, false);
             }, cancellationToken);
         }
 
@@ -191,7 +191,7 @@ namespace SharpPdfGen.Implementation
             {
                 cancellationToken.ThrowIfCancellationRequested();
                 using var stream = new MemoryStream();
-                _document.Save(stream);
+                _document.Save(stream, false);
                 return stream.ToArray();
             }, cancellationToken);
         }
@@ -269,9 +269,9 @@ namespace SharpPdfGen.Implementation
         /// </summary>
         private void SetupDocument()
         {
-            _document.Info.Title = "SharpPdfGen Document";
-            _document.Info.Creator = "SharpPdfGen";
-            _document.Info.CreationDate = DateTime.Now;
+            _document.DocumentInformation.Title = "SharpPdfGen Document";
+            _document.DocumentInformation.Creator = "SharpPdfGen";
+            _document.DocumentInformation.CreationDate = DateTime.Now;
         }
 
         /// <summary>
