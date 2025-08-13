@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharpPdfGen - Modern PDF Generation for .NET</title>
+    <meta name="description" content="High-performance, cross-platform PDF generation library for .NET with full async support. Create, merge, split, and manipulate PDFs with ease.">
+    <meta name="keywords" content="PDF, .NET, C#, library, generation, async, cross-platform, open-source">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SharpPdfGen - Modern PDF Generation for .NET">
+    <meta property="og:description" content="High-performance, cross-platform PDF generation library for .NET with full async support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sharpdfgen.dev">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SharpPdfGen - Modern PDF Generation for .NET">
+    <meta name="twitter:description" content="High-performance, cross-platform PDF generation library for .NET with full async support.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .code-block {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-white">📄 SharpPdfGen</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#features" class="text-white hover:text-blue-200 px-3 py-2 text-sm font-medium transition-colors">Features</a>
+                        <a href="#examples" class="text-white hover:text-blue-200 px-3 py-2 text-sm font-medium transition-colors">Examples</a>
+                        <a href="#comparison" class="text-white hover:text-blue-200 px-3 py-2 text-sm font-medium transition-colors">Comparison</a>
+                        <a href="#docs" class="text-white hover:text-blue-200 px-3 py-2 text-sm font-medium transition-colors">Docs</a>
+                        <a href="https://github.com/yourusername/SharpPdfGen" class="bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-50 transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">
+                    Sharp<span class="text-yellow-300">Pdf</span>Gen
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                    Modern, high-performance PDF generation for .NET with full async support
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <div class="bg-gray-900 text-green-400 px-6 py-3 rounded-lg font-mono text-sm">
+                    <span class="text-gray-400">$</span> dotnet add package SharpPdfGen
+                </div>
+                <div class="flex gap-4">
+                    <a href="#examples" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-lg">
+                        Get Started
+                    </a>
+                    <a href="https://github.com/yourusername/SharpPdfGen" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-white/80">
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span> Cross-Platform
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span> Fully Async
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span> High Performance
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span> MIT Licensed
+                </div>
+            </div>
+        </div>
+
+        <!-- GitHub Stars Badge -->
+        <div class="absolute top-24 right-8 hidden lg:block">
+            <img src="https://img.shields.io/github/stars/yourusername/SharpPdfGen?style=social" alt="GitHub Stars" class="h-6">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose SharpPdfGen?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Built for modern .NET development with performance, ease of use, and flexibility in mind.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🚀</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">High Performance</h3>
+                    <p class="text-gray-600">Optimized for speed and low memory usage. Generate large PDFs efficiently with minimal resource consumption.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Fully Async</h3>
+                    <p class="text-gray-600">Complete async/await support for all operations. Never block your application threads.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🌍</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cross-Platform</h3>
+                    <p class="text-gray-600">Works seamlessly on Windows, Linux, and macOS. Deploy anywhere your .NET apps run.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🔧</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Easy to Use</h3>
+                    <p class="text-gray-600">Intuitive API design that makes PDF generation simple and enjoyable for developers.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-gradient-to-br from-red-50 to-rose-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🔒</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Thread-Safe</h3>
+                    <p class="text-gray-600">Safe for concurrent operations. Use in multi-threaded applications without worrying about race conditions.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-100 p-8 rounded-xl">
+                    <div class="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Free & Open</h3>
+                    <p class="text-gray-600">MIT licensed with no restrictions. Use it commercially without licensing fees or limitations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples Section -->
+    <section id="examples" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Simple Yet Powerful</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See how easy it is to create professional PDFs with just a few lines of code.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Basic Example -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-6 py-4">
+                        <h3 class="text-white font-semibold">Basic PDF Creation</h3>
+                    </div>
+                    <div class="code-block">
+                        <pre><code class="language-csharp">using SharpPdfGen;
+using SharpPdfGen.Core;
+
+// Create a new PDF document
+using var document = PdfGenerator.CreateDocument(
+    title: "My First PDF",
+    author: "John Doe"
+);
+
+// Add a page
+var page = document.AddPage(PageSize.A4);
+
+// Add content
+await page.AddHeaderAsync("Welcome!");
+await page.AddTextAsync("Hello, World!", 50, 120, 
+    TextStyle.Heading);
+
+// Save the document
+await document.SaveAsync("my-first-pdf.pdf");</code></pre>
+                    </div>
+                </div>
+
+                <!-- Advanced Example -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-6 py-4">
+                        <h3 class="text-white font-semibold">Advanced Features</h3>
+                    </div>
+                    <div class="code-block">
+                        <pre><code class="language-csharp">// Create a table
+var table = new Table();
+table.ColumnWidths.AddRange(new[] { 150.0, 200.0, 100.0 });
+table.AddRow("Product", "Description", "Price");
+table.AddRow("SharpPdfGen Pro", "Advanced features", "$49.99");
+
+// Add styled table to page
+await page.AddTableAsync(table, 50, 200);
+
+// Add an image
+var imageData = await File.ReadAllBytesAsync("logo.png");
+await page.AddImageAsync(imageData, 50, 350, 200, 100);
+
+// Merge multiple documents
+var docs = new[] { doc1, doc2, doc3 };
+using var merged = await PdfGenerator
+    .MergeDocumentsAsync(docs);</code></pre>
+                    </div>
+                </div>
+
+                <!-- HTML to PDF -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-6 py-4">
+                        <h3 class="text-white font-semibold">HTML to PDF</h3>
+                    </div>
+                    <div class="code-block">
+                        <pre><code class="language-csharp">var html = @"
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        h1 { color: #2c3e50; }
+        .highlight { background: #f39c12; }
+    </style>
+</head>
+<body>
+    <h1>HTML to PDF</h1>
+    <p>Convert <span class='highlight'>HTML</span> 
+       directly to PDF!</p>
+</body>
+</html>";
+
+// Convert HTML to PDF
+using var document = await PdfGenerator
+    .FromHtmlAsync(html, PageSize.A4);</code></pre>
+                    </div>
+                </div>
+
+                <!-- Async Operations -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gray-800 px-6 py-4">
+                        <h3 class="text-white font-semibold">Parallel Processing</h3>
+                    </div>
+                    <div class="code-block">
+                        <pre><code class="language-csharp">// Generate multiple PDFs in parallel
+var tasks = Enumerable.Range(1, 10).Select(async i =>
+{
+    using var doc = PdfGenerator.CreateDocument($"Doc {i}");
+    var page = doc.AddPage();
+    await page.AddTextAsync($"Document {i}", 50, 100);
+    await doc.SaveAsync($"document-{i}.pdf");
+});
+
+// Wait for all documents to be generated
+await Task.WhenAll(tasks);
+
+// Extract text from existing PDFs
+var text = await document.ExtractTextAsync();
+Console.WriteLine($"Extracted: {text}");</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">How We Compare</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See how SharpPdfGen stacks up against other popular PDF libraries.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-semibold text-gray-900">Feature</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-blue-600">SharpPdfGen</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900">PdfSharp</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900">iText7</th>
+                            <th class="px-6 py-4 text-center text-sm font-semibold text-gray-900">QuestPDF</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">Open Source</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">MIT</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">MIT</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-red-500 text-lg">❌</span><br><span class="text-xs text-gray-500">AGPL*</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">MIT</span></td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">Async Support</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">Full</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-red-500 text-lg">❌</span><br><span class="text-xs text-gray-500">None</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-yellow-500 text-lg">⚠️</span><br><span class="text-xs text-gray-500">Limited</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-red-500 text-lg">❌</span><br><span class="text-xs text-gray-500">None</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">Performance</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">High</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">High</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-yellow-500 text-lg">⚠️</span><br><span class="text-xs text-gray-500">Medium</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">High</span></td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">HTML to PDF</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">Yes</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-yellow-500 text-lg">⚠️</span><br><span class="text-xs text-gray-500">Limited</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">Yes</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-red-500 text-lg">❌</span><br><span class="text-xs text-gray-500">No</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">Learning Curve</td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">Easy</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-yellow-500 text-lg">⚠️</span><br><span class="text-xs text-gray-500">Medium</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-red-500 text-lg">❌</span><br><span class="text-xs text-gray-500">Hard</span></td>
+                            <td class="px-6 py-4 text-center"><span class="text-green-500 text-lg">✅</span><br><span class="text-xs text-gray-500">Easy</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-xs text-gray-500 mt-4">* iText7 requires a commercial license for commercial use</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="docs" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get Started Today</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Install SharpPdfGen and start generating PDFs in minutes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Install -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-white">📦</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">1. Install</h3>
+                    </div>
+                    <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm">
+                        dotnet add package SharpPdfGen
+                    </div>
+                </div>
+
+                <!-- Code -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-white">💻</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">2. Code</h3>
+                    </div>
+                    <div class="bg-gray-900 text-blue-400 p-4 rounded-lg font-mono text-sm">
+                        using SharpPdfGen;<br>
+                        var doc = PdfGenerator<br>
+                        &nbsp;&nbsp;.CreateDocument();
+                    </div>
+                </div>
+
+                <!-- Generate -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl text-white">🚀</span>
+                        </div>
+                        <h3 class="text-xl font-semibold">3. Generate</h3>
+                    </div>
+                    <div class="bg-gray-900 text-yellow-400 p-4 rounded-lg font-mono text-sm">
+                        await doc.SaveAsync<br>
+                        &nbsp;&nbsp;("output.pdf");
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://github.com/yourusername/SharpPdfGen" class="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                        📚 Documentation
+                    </a>
+                    <a href="https://github.com/yourusername/SharpPdfGen/tree/main/samples" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        📝 Examples
+                    </a>
+                    <a href="https://www.nuget.org/packages/SharpPdfGen/" class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+                        📦 NuGet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">📄 SharpPdfGen</h3>
+                    <p class="text-gray-400 text-sm">
+                        Modern PDF generation for .NET developers. Fast, reliable, and completely free.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Examples</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Stack Overflow</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Discussions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-sm font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Issues</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Bug Reports</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Feature Requests</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 SharpPdfGen. Released under the MIT License.
+                </p>
+                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                    <img src="https://img.shields.io/nuget/v/SharpPdfGen.svg" alt="NuGet Version" class="h-5">
+                    <img src="https://img.shields.io/github/stars/yourusername/SharpPdfGen?style=social" alt="GitHub Stars" class="h-5">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+    <!-- Smooth scrolling for navigation -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
