@@ -44,7 +44,7 @@ dotnet nuget list source
 
 ```bash
 # Set your NuGet API key (replace YOUR_API_KEY)
-dotnet nuget setapikey YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+dotnet nuget setapikey YOUR_API_KEY --source  https://api.nuget.org/v3/index.json
 
 # Push the package
 dotnet nuget push ../../nupkg/SharpPdfGen.1.0.0.nupkg --source https://api.nuget.org/v3/index.json

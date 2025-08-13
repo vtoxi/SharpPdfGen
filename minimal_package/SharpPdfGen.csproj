@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591</NoWarn>
+    
+    <!-- NuGet Package Information -->
+    <PackageId>SharpPdfGen</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>SharpPdfGen Contributors</Authors>
+    <Company>SharpPdfGen</Company>
+    <Description>A high-performance, cross-platform, open-source PDF generation library for .NET with full async support. Create, merge, split, and manipulate PDFs with ease.</Description>
+    <Summary>Modern PDF generation library for .NET with async/await support</Summary>
+    <PackageTags>pdf;generator;async;cross-platform;open-source;merge;split;html-to-pdf;text-extraction</PackageTags>
+    <PackageProjectUrl>https://github.com/vtoxi/SharpPdfGen</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vtoxi/SharpPdfGen</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright (c) 2024 SharpPdfGen Contributors</Copyright>
+    <PackageReleaseNotes>v1.0.1: Added comprehensive README with examples and documentation</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PdfSharp" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
