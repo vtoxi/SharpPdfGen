@@ -2,9 +2,9 @@
 
 [![NuGet Version](https://img.shields.io/nuget/v/SharpPdfGen.svg)](https://www.nuget.org/packages/SharpPdfGen/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/SharpPdfGen.svg)](https://www.nuget.org/packages/SharpPdfGen/)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/SharpPdfGen.svg)](https://github.com/yourusername/SharpPdfGen)
+[![GitHub Stars](https://img.shields.io/github/stars/vtoxi/SharpPdfGen.svg)](https://github.com/vtoxi/SharpPdfGen)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/SharpPdfGen/ci.yml?branch=main)](https://github.com/yourusername/SharpPdfGen/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/vtoxi/SharpPdfGen/ci.yml?branch=main)](https://github.com/vtoxi/SharpPdfGen/actions)
 
 **SharpPdfGen** is a modern, high-performance, cross-platform PDF generation library for .NET with full async/await support. Create, merge, split, and manipulate PDFs with an intuitive and powerful API.
 
@@ -354,12 +354,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [Official Website](https://sharpdfgen.dev)
+- [Official Website](https://vtoxi.github.io/SharpPdfGen)
 - [NuGet Package](https://www.nuget.org/packages/SharpPdfGen/)
-- [Documentation](https://docs.sharpdfgen.dev)
-- [GitHub Repository](https://github.com/yourusername/SharpPdfGen)
-- [Issue Tracker](https://github.com/yourusername/SharpPdfGen/issues)
-- [Discussions](https://github.com/yourusername/SharpPdfGen/discussions)
+- [Documentation](https://github.com/vtoxi/SharpPdfGen#readme)
+- [GitHub Repository](https://github.com/vtoxi/SharpPdfGen)
+- [Issue Tracker](https://github.com/vtoxi/SharpPdfGen/issues)
+- [Discussions](https://github.com/vtoxi/SharpPdfGen/discussions)
 
 ## 💬 Support
 

@@ -16,8 +16,8 @@
     <Description>A high-performance, cross-platform, open-source PDF generation library for .NET with full async support. Create, merge, split, and manipulate PDFs with ease.</Description>
     <Summary>Modern PDF generation library for .NET with async/await support</Summary>
     <PackageTags>pdf;generator;async;cross-platform;open-source;merge;split;html-to-pdf;text-extraction</PackageTags>
-    <PackageProjectUrl>https://github.com/yourusername/SharpPdfGen</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/yourusername/SharpPdfGen</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vtoxi/SharpPdfGen</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vtoxi/SharpPdfGen</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
