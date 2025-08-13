@@ -21,7 +21,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageIcon>icon.png</PackageIcon>
+
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>Copyright (c) 2024 SharpPdfGen Contributors</Copyright>
     <PackageReleaseNotes>Initial release with full PDF generation capabilities</PackageReleaseNotes>
